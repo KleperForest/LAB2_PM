@@ -1,9 +1,9 @@
 //*********************************************************************
 // Universidad del Valle de Guatemala
-// IE2023: Programación de Microcontroladores
+// IE2023: ProgramaciÃ³n de Microcontroladores
 // Autor: Alan Gomez
 // Proyecto: Laboratorio 2.asm
-// Descripción: Segundo Laboratorio de Programación de Microcontroladores. 
+// DescripciÃ³n: Segundo Laboratorio de ProgramaciÃ³n de Microcontroladores. 
 // Hardware: ATmega328p
 // Created: 1/24/2024 5:38:40 PM
 //*********************************************************************
@@ -92,10 +92,10 @@ INCREMET:
 		BRNE delay4   //Si R16 no es igual a 0, tira al delay	
 	;Delay...................................................
 
-	ADIW Z,1
-	LPM R17,Z
-	OUT PORTD, R17
-	KL:
+	ADIW Z,1// suma uno en z
+	LPM R17,Z// indica a z
+	OUT PORTD, R17// carga salida
+	KL:// loop hasta que deje de presionar el boton
 		IN R16, PINC
 		SBRC R16, PC0
 		RJMP LOOP
@@ -125,11 +125,11 @@ DECREMET:
 		BRNE delay8   //Si R16 no es igual a 0, tira al delay
 	 ;Delay...................................................
 
-	SBIW Z,1
-	LPM R18,Z
-	OUT PORTD, R18
+	SBIW Z,1// resta uno en z
+	LPM R18,Z// indica a z
+	OUT PORTD, R18// carga saldia
 	KL2:
-		IN R16, PINC
+		IN R16, PINC // loop hasta que deje de presionar boton
 		SBRC R16, PC1
 		RJMP LOOP
 
